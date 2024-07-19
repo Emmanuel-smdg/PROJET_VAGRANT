@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="template">
+<head>
+    <meta charset="UTF-8">
+    <title>Retrait</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="col-md-6 offset-3 mt-3">
+        <form th:action="@{debiterCompte}" th:object="${transfertDto}" method="post" >
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between">
+                            <h3>Effectuer un retrait</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group mb-3">
+                            <label for="compteId">ID : </label>
+                            <label th:text="${transfertDto.compteId}"></label>
+                            <input type="hidden" class="form-control" name="compteId" id="compteId" th:value="${transfertDto.compteId}">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="montant">Montant</label>
+                            <input type="text" class="form-control" name="montant" id="montant" th:value="*{montant}">
+                            <span th:if="${#fields.hasErrors('montant')}" th:errors="*{montant}" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="description">Description</label>
+                            <input type="text" class="form-control" name="description" id="description" th:value="*{description}">
+                            <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Débiter</button>
+                    </div>
+                </div>
+        </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des Comptes</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="container mt-3">
+        <div class="card">
+            <div class="card-header">
+                Projet vagrant : Application web
+            </div>
+            <div class="card-body">
+                <p>
+                    L'application que nous avons développé pour ce projet est une application de web de gestion de comptes bancaires :
+                </p>
+                <ul>
+                    <li>Un compte est défini un identifiant, un solde, une date de création, un type</li>
+                    <li>Un compte courant est un compte qui possède en plus un découvert</li>
+                    <li>Un compte épargne est un compte qui possède en plus un taux d’intérêt.</li>
+                    <li>Un compte appartient à un client</li>
+                    <li>Un client est défini par son identifiant, son nom et son email</li>
+                    <li>Un compte peut subir plusieurs opérations.</li>
+                    <li>Il existe trois types d’opérations : Versement (créditer) et Retrait (débiter) et transfert</li>
+                    <li>Une opération est défini par un identifiant, sa date, son type(Débit, Crédit), une description</li>
+                </ul>
+                <p>
+                    Fonctionnellement, l'application permet de :
+                </p>
+                <ul>
+                    👪 Gérer les clients :
+                    <li>Ajouter un client</li>
+                    <li>Modifier un client</li>
+                    <li>Consulter tous les clients</li>
+                    <li>Créer un compte pour un client (courant ou épargne)</li>
+                </ul>
+                <ul>
+                    🏦 Gérer les comptes :
+                    <li>Faire un retrait (débiter le compte)e</li>
+                    <li>Faire un dépôt / versement (créditer le compte)</li>
+                    <li>Consulter l'historique des opérations sur un compte donnée</li>
+                    <li>Effectuer un transfert d'un compte vers un autre</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

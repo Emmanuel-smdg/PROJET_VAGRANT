@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template">
+<head>
+    <meta charset="UTF-8">
+    <title>Creer compte</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="col-md-6 offset-3 mt-3">
+        <form th:action="@{saveSC}" th:object="${accountDetails}" method="post" >
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between">
+                        <h3>Créer compte Epargne</h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group mb-3">
+                        <label for="idClient">ID du client : </label>
+                        <label th:text="${accountDetails.idClient}"></label>
+                        <input type="hidden" class="form-control" name="idClient" id="idClient" th:value="${accountDetails.idClient}">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="soldeInitial">Solde Initial</label>
+                        <input type="text" class="form-control" name="soldeInitial" id="soldeInitial" th:value="*{soldeInitial}">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="taux">Taux</label>
+                        <input type="text" class="form-control" name="taux" id="taux" th:value="*{decouvert}">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+
